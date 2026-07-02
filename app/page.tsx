@@ -3,8 +3,8 @@
 import { Fragment, useState, useEffect } from "react";
 import Link from 'next/link';
 import Image from 'next/image';
-import { time } from "./_utils/time";
-import type { Post } from './_utils/post';
+import { time } from "./_types/time";
+import type { Post } from './_types/post';
 
 
 export default function Home() {
@@ -34,13 +34,15 @@ export default function Home() {
     <>
       <span className="text-2xl justify-between text-left m-30">記事一覧</span>
       {
-        posts.map((elem: Post) => (
+        posts.map(elem => (
           <Fragment key={elem.id} >
             <Link href={`posts/${elem.id}`}>
               <main className="flex justify-between mx-auto container items-center">
                 <div >
                   <Image src={elem.thumbnailUrl}
-                    alt="elem.thumbnailUrlの画像" />
+                    alt="elem.thumbnailUrlの画像"
+                    width={800}
+                    height={400} />
                 </div>
 
                 <div className="text-left items-center">

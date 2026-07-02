@@ -4,8 +4,8 @@ import { Fragment, useState, useEffect } from "react";
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { time } from "../../_utils/time";
-import type { Post } from '../../_utils/post';
+import { time } from "../../_types/time";
+import type { Post } from '../../_types/post';
 
 export default function Article() {
 
@@ -22,7 +22,7 @@ export default function Article() {
       setLoad(!load)
     }
 
-    
+
     fetcher()
   }, [])
 
@@ -41,13 +41,15 @@ export default function Article() {
   return (
     <>
       {
-        <Link href="posts/:id">
+        <Link href={`/posts/${post.id}`}>
           <Fragment key={post.id} >
             <main className="mx-auto max-w-3xl px-4 mt-3">
               <div>
                 <Image className="items-center"
                   src={post.thumbnailUrl}
-                  alt="post.thumbnailUrlの画像" /><br />
+                  alt="post.thumbnailUrlの画像"
+                  width={800}
+                  height={400} /><br />
               </div>
 
               <div className="text-left">
