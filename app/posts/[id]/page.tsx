@@ -4,7 +4,7 @@ import { Fragment, useState, useEffect } from "react";
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import Image from 'next/image';
-import { time } from "../../_types/time";
+import { time } from "../../_utils/time";
 import type { Post } from '../../_types/post';
 
 export default function Article() {
